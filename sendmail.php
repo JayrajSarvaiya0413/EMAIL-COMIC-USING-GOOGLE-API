@@ -1,16 +1,17 @@
 <?php
-require 'phpmailer/PHPMailerAutoload.php';
+require 'php.ini';
+require 'sendmail.ini';
 
-$mail = new PHPMailer;
-$mail->Host='smtp.gmail.com';
-$mail->POrt=587;
-$mail->SMTPAuth=true;
-$mail->SMTPSecure='tls';
-$mail->Username='jayrajsarvaiya0413@gmail.com';
-$mail->Password='j@yraj0413';
-$mail->setFrom('jayrajsarvaiya0413@gmail.com');
-$mail->addReplayTo('jayrajsarvaiya0413@gmail.com');
-$mail->isHTML(true);
+// $mail = new PHPMailer;
+// $mail->Host='smtp.gmail.com';
+// $mail->POrt=587;
+// $mail->SMTPAuth=true;
+// $mail->SMTPSecure='tls';
+// $mail->Username='jayrajsarvaiya0413@gmail.com';
+// $mail->Password='j@yraj0413';
+// $mail->setFrom('jayrajsarvaiya0413@gmail.com');
+// $mail->addReplayTo('jayrajsarvaiya0413@gmail.com');
+// $mail->isHTML(true);
 
 global $headers;
 $headers = "Content-type: text/html; charset=iso-8859-1\r\n";
