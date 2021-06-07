@@ -13,9 +13,9 @@ $mail->addReplayTo('jayrajsarvaiya0413@gmail.com');
 $mail->isHTML(true);
 
 global $headers;
-$mail->$headers = "Content-type: text/html; charset=iso-8859-1\r\n";
+$headers = "Content-type: text/html; charset=iso-8859-1\r\n";
 global $msg;
-$mail->$msg=array();
+$msg=array();
 
 
 function fetchData(){
@@ -35,14 +35,14 @@ function fetchData(){
 
     while($row = $result->fetch_assoc()) {
 
-      $mail->$temp1 = array();
+      $temp1 = array();
       array_push($temp1, $row["emailid"]);
     }
   }
 }
 
 function connectToDatabase(){
- $mail->$test = array("
+  $test = array("
     <html>
     <body>
     <form method='post' action='https://emailcomicjayraj.herokuapp.com/unsub.php'>
@@ -172,7 +172,7 @@ if ($result->num_rows > 0) {
 
   while($row = $result->fetch_assoc()) {
     global $temp;
-    $mail->$temp = array();
+    $temp = array();
     array_push($temp, $row["emailid"]);
     for ($i=0; $i < count($test); $i++) { 
       if ($i == count($test)) {
@@ -188,7 +188,7 @@ if ($result->num_rows > 0) {
 
         while($row = $result->fetch_assoc()) {
           global $temp;
-          $mail->$temp = array();
+          $temp = array();
           array_push($temp, $row["emailid"]);
           for ($j=0; $j < count($temp); $j++) { 
             mail($temp[$j], "COMIC_EMAIL",$test[$i],"Content-type: text/html; charset=iso-8859-1\r\n");
