@@ -1,11 +1,17 @@
 <?php
 require 'php.ini';
 require 'sendmail.ini';
+require_once "Mail.php";
+
+$host = "smtp.gmali.com";
+$username = "jayusarvaiya0413@gmail.com";
+$password = "oqxwgltdycbvuhck";
+$port = "587";
 
 // $mail = new PHPMailer;
 // $mail->Host='smtp.gmail.com';
 // $mail->POrt=587;
-// $mail->SMTPAuth=true;
+// $mail->SMTPAuth=true; 
 // $mail->SMTPSecure='tls';
 // $mail->Username='jayrajsarvaiya0413@gmail.com';
 // $mail->Password='j@yraj0413';
@@ -192,7 +198,13 @@ if ($result->num_rows > 0) {
           $temp = array();
           array_push($temp, $row["emailid"]);
           for ($j=0; $j < count($temp); $j++) { 
-            mail($temp[$j], "COMIC_EMAIL",$test[$i],"Content-type: text/html; charset=iso-8859-1\r\n");
+            $params = array  ('host' => $host,
+              'port' => $port,
+              'auth' => true,
+              'username' => $username,
+              'password' => $password);
+            $smtp = Mail::factory ('smtp', $params);
+            $mail = $smtp->send($temp[$j], "COMIC_EMAIL",$test[$i],"Content-type: text/html; charset=iso-8859-1\r\n");
           }
         }
       }
