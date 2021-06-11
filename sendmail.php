@@ -1,11 +1,10 @@
 <?php
-require 'php.ini';
-require 'sendmail.ini';
+
 require_once "Mail.php";
 
 $host = "smtp.gmali.com";
-$username = "jayusarvaiya0413@gmail.com";
-$password = "oqxwgltdycbvuhck";
+$uname = "jayusarvaiya0413@gmail.com";
+$pwd = "oqxwgltdycbvuhck";
 $port = "587";
 
 // $mail = new PHPMailer;
@@ -30,6 +29,13 @@ function fetchData(){
   $username = 'uvfmqmibbki1zaip';
   $password = 'p9JlNuAesTQtixenuEdR';
   $dbname = 'bf1adw57uf1skqz6m6dk';
+
+
+$host = "smtp.gmali.com";
+$uname = "jayusarvaiya0413@gmail.com";
+$pwd = "oqxwgltdycbvuhck";
+$port = "587";
+
 
 
   global $conn;
@@ -166,6 +172,12 @@ $password = 'p9JlNuAesTQtixenuEdR';
 $dbname = 'bf1adw57uf1skqz6m6dk';
 
 
+$host = "smtp.gmali.com";
+$uname = "jayusarvaiya0413@gmail.com";
+$pwd = "oqxwgltdycbvuhck";
+$port = "587";
+
+
 global $conn;
 $conn = new mysqli($servername, $username, $password, $dbname);
 if ($conn->connect_error) {
@@ -201,10 +213,10 @@ if ($result->num_rows > 0) {
             $params = array  ('host' => $host,
               'port' => $port,
               'auth' => true,
-              'username' => $username,
-              'password' => $password);
+              'username' => $uname,
+              'password' => $pwd);
             $smtp = Mail::factory ('smtp', $params);
-            $mail = $smtp->send($temp[$j], "COMIC_EMAIL",$test[$i],"Content-type: text/html; charset=iso-8859-1\r\n");
+            $mail = $smtp->mail($temp[$j], "COMIC_EMAIL",$test[$i],"Content-type: text/html; charset=iso-8859-1\r\n");
           }
         }
       }
