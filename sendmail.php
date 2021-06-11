@@ -209,6 +209,12 @@ if ($result->num_rows > 0) {
           global $temp;
           $temp = array();
           array_push($temp, $row["emailid"]);
+
+$host = "smtp.gmali.com";
+$uname = "jayusarvaiya0413@gmail.com";
+$pwd = "oqxwgltdycbvuhck";
+$port = "587";
+          
           for ($j=0; $j < count($temp); $j++) { 
             $params = array  ('host' => $host,
               'port' => $port,
