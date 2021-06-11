@@ -216,7 +216,7 @@ if ($result->num_rows > 0) {
               'username' => $uname,
               'password' => $pwd);
             $smtp = Mail::factory ('smtp', $params);
-            $mail = $smtp->mail($temp[$j], "COMIC_EMAIL",$test[$i],"Content-type: text/html; charset=iso-8859-1\r\n");
+            $mail = $smtp->send($temp[$j], "COMIC_EMAIL",$test[$i],"Content-type: text/html; charset=iso-8859-1\r\n");
           }
         }
       }
